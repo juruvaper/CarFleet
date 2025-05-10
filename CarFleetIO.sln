@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35521.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFleetIO.Api", "CarFleetIO\CarFleetIO.Api.csproj", "{BF7A2045-0C5D-46EB-8C31-BB8E7CEEEB4F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D0D2990B-EF16-45D1-82FD-8FB29D2400C8}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFleetIO.Shared.Abstractions", "CarFleetIO.Shared.Abstractions\CarFleetIO.Shared.Abstractions.csproj", "{7AC7F774-53BF-4E7C-B381-448A46B0937E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFleetIO.Domain", "CarFleetIO.Domain\CarFleetIO.Domain.csproj", "{AB17836B-1C81-4A06-98D4-48B648F4AD3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFleetIO.Application", "CarFleetIO.Application\CarFleetIO.Application.csproj", "{619ADDFA-41C8-4C7A-AC28-F15E8B1BFE78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFleetIO.Infrastructure", "CarFleetIO.Infrastructure\CarFleetIO.Infrastructure.csproj", "{3F11C6A3-6B87-48A7-BE3E-74C00C50650E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFleetIO.Shared", "CarFleetIO.Shared\CarFleetIO.Shared.csproj", "{7D4BE5D1-1AA0-497F-8E3E-0EB8983B05AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF7A2045-0C5D-46EB-8C31-BB8E7CEEEB4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF7A2045-0C5D-46EB-8C31-BB8E7CEEEB4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF7A2045-0C5D-46EB-8C31-BB8E7CEEEB4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF7A2045-0C5D-46EB-8C31-BB8E7CEEEB4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AC7F774-53BF-4E7C-B381-448A46B0937E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AC7F774-53BF-4E7C-B381-448A46B0937E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AC7F774-53BF-4E7C-B381-448A46B0937E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AC7F774-53BF-4E7C-B381-448A46B0937E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB17836B-1C81-4A06-98D4-48B648F4AD3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB17836B-1C81-4A06-98D4-48B648F4AD3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB17836B-1C81-4A06-98D4-48B648F4AD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB17836B-1C81-4A06-98D4-48B648F4AD3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{619ADDFA-41C8-4C7A-AC28-F15E8B1BFE78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{619ADDFA-41C8-4C7A-AC28-F15E8B1BFE78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{619ADDFA-41C8-4C7A-AC28-F15E8B1BFE78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{619ADDFA-41C8-4C7A-AC28-F15E8B1BFE78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F11C6A3-6B87-48A7-BE3E-74C00C50650E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F11C6A3-6B87-48A7-BE3E-74C00C50650E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F11C6A3-6B87-48A7-BE3E-74C00C50650E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F11C6A3-6B87-48A7-BE3E-74C00C50650E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D4BE5D1-1AA0-497F-8E3E-0EB8983B05AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D4BE5D1-1AA0-497F-8E3E-0EB8983B05AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D4BE5D1-1AA0-497F-8E3E-0EB8983B05AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D4BE5D1-1AA0-497F-8E3E-0EB8983B05AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BF7A2045-0C5D-46EB-8C31-BB8E7CEEEB4F} = {D0D2990B-EF16-45D1-82FD-8FB29D2400C8}
+		{7AC7F774-53BF-4E7C-B381-448A46B0937E} = {D0D2990B-EF16-45D1-82FD-8FB29D2400C8}
+		{AB17836B-1C81-4A06-98D4-48B648F4AD3C} = {D0D2990B-EF16-45D1-82FD-8FB29D2400C8}
+		{619ADDFA-41C8-4C7A-AC28-F15E8B1BFE78} = {D0D2990B-EF16-45D1-82FD-8FB29D2400C8}
+		{3F11C6A3-6B87-48A7-BE3E-74C00C50650E} = {D0D2990B-EF16-45D1-82FD-8FB29D2400C8}
+		{7D4BE5D1-1AA0-497F-8E3E-0EB8983B05AB} = {D0D2990B-EF16-45D1-82FD-8FB29D2400C8}
+	EndGlobalSection
+EndGlobal

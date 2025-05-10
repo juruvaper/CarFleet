@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    shm_size: '4gb'
+    container_name: carFleet
+    restart: unless-stopped
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - 5432:5432  # <- FIXED
+    networks:
+      - carFleet
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+networks:
+  carFleet:
+    name: carFleet
+
+volumes:
+  postgres:
+    driver: local

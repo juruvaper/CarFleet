@@ -1,0 +1,5 @@
+C:\Users\Użytkownik\Desktop\Lab2Proj\CarFleetIO.Application\obj\Release\net8.0\CarFleetIO.Application.csproj.AssemblyReference.cache
+C:\Users\Użytkownik\Desktop\Lab2Proj\CarFleetIO.Application\obj\Release\net8.0\CarFleetIO.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Użytkownik\Desktop\Lab2Proj\CarFleetIO.Application\obj\Release\net8.0\CarFleetIO.Application.AssemblyInfoInputs.cache
+C:\Users\Użytkownik\Desktop\Lab2Proj\CarFleetIO.Application\obj\Release\net8.0\CarFleetIO.Application.AssemblyInfo.cs
+C:\Users\Użytkownik\Desktop\Lab2Proj\CarFleetIO.Application\obj\Release\net8.0\CarFleetIO.Application.csproj.CoreCompileInputs.cache

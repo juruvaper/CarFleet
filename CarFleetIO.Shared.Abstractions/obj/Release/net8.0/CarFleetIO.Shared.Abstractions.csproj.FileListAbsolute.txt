@@ -1,0 +1,11 @@
+C:\Users\Użytkownik\Desktop\Lab2Proj\CarFleetIO.Shared.Abstractions\bin\Release\net8.0\CarFleetIO.Shared.Abstractions.deps.json
+C:\Users\Użytkownik\Desktop\Lab2Proj\CarFleetIO.Shared.Abstractions\bin\Release\net8.0\CarFleetIO.Shared.Abstractions.dll
+C:\Users\Użytkownik\Desktop\Lab2Proj\CarFleetIO.Shared.Abstractions\bin\Release\net8.0\CarFleetIO.Shared.Abstractions.pdb
+C:\Users\Użytkownik\Desktop\Lab2Proj\CarFleetIO.Shared.Abstractions\obj\Release\net8.0\CarFleetIO.Shared.Abstractions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Użytkownik\Desktop\Lab2Proj\CarFleetIO.Shared.Abstractions\obj\Release\net8.0\CarFleetIO.Shared.Abstractions.AssemblyInfoInputs.cache
+C:\Users\Użytkownik\Desktop\Lab2Proj\CarFleetIO.Shared.Abstractions\obj\Release\net8.0\CarFleetIO.Shared.Abstractions.AssemblyInfo.cs
+C:\Users\Użytkownik\Desktop\Lab2Proj\CarFleetIO.Shared.Abstractions\obj\Release\net8.0\CarFleetIO.Shared.Abstractions.csproj.CoreCompileInputs.cache
+C:\Users\Użytkownik\Desktop\Lab2Proj\CarFleetIO.Shared.Abstractions\obj\Release\net8.0\CarFleetIO.Shared.Abstractions.dll
+C:\Users\Użytkownik\Desktop\Lab2Proj\CarFleetIO.Shared.Abstractions\obj\Release\net8.0\refint\CarFleetIO.Shared.Abstractions.dll
+C:\Users\Użytkownik\Desktop\Lab2Proj\CarFleetIO.Shared.Abstractions\obj\Release\net8.0\CarFleetIO.Shared.Abstractions.pdb
+C:\Users\Użytkownik\Desktop\Lab2Proj\CarFleetIO.Shared.Abstractions\obj\Release\net8.0\ref\CarFleetIO.Shared.Abstractions.dll

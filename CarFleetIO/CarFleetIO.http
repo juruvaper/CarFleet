@@ -1,0 +1,6 @@
+@CarFleetIO_HostAddress = http://localhost:5075
+
+GET {{CarFleetIO_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

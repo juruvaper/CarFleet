@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "7JJkCOiV0qk2BhWcJdAS82S9Ri/uIVG4CQGSb5mafNY=",
+  "Source": "CarFleetIO.Api",
+  "BasePath": "_content/CarFleetIO.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
