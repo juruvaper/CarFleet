@@ -2,11 +2,12 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CarFleetIO.Infrastructure.EF.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace CarFleetIO.Shared.Services
+namespace CarFleetIO.Infrastructure.EF.AppInit
 {
     internal sealed class AppInitializer : IHostedService
     {
@@ -17,21 +18,13 @@ namespace CarFleetIO.Shared.Services
 
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            var dbContextTypes = AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(a => a.GetTypes())
-                .Where(a => typeof(DbContext).IsAssignableFrom(a) && !a.IsInterface && a != typeof(DbContext));
-
             using var scope = _serviceProvider.CreateScope();
-            foreach (var dbContextType in dbContextTypes)
-            {
-                var dbContext = scope.ServiceProvider.GetRequiredService(dbContextType) as DbContext;
-                if (dbContext is null)
-                {
-                    continue;
-                }
+            var writeDbContext = scope.ServiceProvider.GetRequiredService<WriteDbContext>();
+            var readDbContext = scope.ServiceProvider.GetRequiredService<ReadDbContext>();
 
-                await dbContext.Database.MigrateAsync(cancellationToken);
-            }
+            await writeDbContext.Database.MigrateAsync(cancellationToken);
+            await readDbContext.Database.MigrateAsync(cancellationToken);
+            
         }
 
         public Task StopAsync(CancellationToken cancellationToken) => Task.CompletedTask;

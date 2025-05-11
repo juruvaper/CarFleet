@@ -28,3 +28,4 @@ C:\Users\juruv\Desktop\CSharp\Lab2Proj\CarFleetIO.Shared\obj\Debug\net8.0\CarFle
 C:\Users\juruv\Desktop\CSharp\Lab2Proj\CarFleetIO.Shared\obj\Debug\net8.0\refint\CarFleetIO.Shared.dll
 C:\Users\juruv\Desktop\CSharp\Lab2Proj\CarFleetIO.Shared\obj\Debug\net8.0\CarFleetIO.Shared.pdb
 C:\Users\juruv\Desktop\CSharp\Lab2Proj\CarFleetIO.Shared\obj\Debug\net8.0\ref\CarFleetIO.Shared.dll
+C:\Users\juruv\Desktop\CSharp\Lab2Proj\CarFleetIO.Shared\obj\Debug\net8.0\CarFleetIO.Shared.sourcelink.json

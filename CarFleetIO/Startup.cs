@@ -15,6 +15,10 @@ using CarFleetIO.Infrastructure;
 using CarFleetIO.Shared;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using Microsoft.AspNetCore.Identity;
+using CarFleetIO.Infrastructure.EF.Identity;
+using Microsoft.EntityFrameworkCore;
+using CarFleetIO.Infrastructure.EF.AppInit;
 
 namespace CarFleetIO.Api
 {
@@ -35,6 +39,17 @@ namespace CarFleetIO.Api
                 //Application layer jest odpowiedzialna za rejestrację obiektów na szczeblu domeny
 
                 services.AddShared();
+
+            services.AddEndpointsApiExplorer();
+            services.AddAuthorization();
+            services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme)
+                .AddBearerToken(IdentityConstants.BearerScheme);
+
+            services.AddIdentityCore<UserIdentity>()
+                .AddEntityFrameworkStores<UserManagerDbContext>()
+                .AddApiEndpoints();
+
+            services.AddDbContext<UserManagerDbContext>(options => options.UseNpgsql("Host=localhost;Database=Identity;Username=postgres;Password="));
                 services.AddApplication();
                 services.AddInfrastructure(Configuration);
                 services.AddControllers()
@@ -45,7 +60,7 @@ namespace CarFleetIO.Api
 
             services.AddSwaggerGen(c =>
                 {
-                    c.SwaggerDoc("v1", new OpenApiInfo { Title = "PackIT.Api", Version = "v1" });
+                    c.SwaggerDoc("v1", new OpenApiInfo { Title = "CarFleetIO.Api", Version = "v1" });
                 });
             }
 
@@ -56,16 +71,24 @@ namespace CarFleetIO.Api
                     app.UseDeveloperExceptionPage();
                     app.UseSwagger();
                     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PackIT.Api v1"));
+                    app.ApplyMigrations();
                 }
 
+                
                 app.UseHttpsRedirection();
 
                 app.UseRouting();
 
+                app.UseAuthentication();
                 app.UseAuthorization();
 
-                app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-            }
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapIdentityApi<UserIdentity>(); // <-- This is the missing piece
+            });
+
         }
+    }
     }
 

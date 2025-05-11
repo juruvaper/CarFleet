@@ -63,3 +63,4 @@ C:\Users\juruv\Desktop\CSharp\Lab2Proj\CarFleetIO.Infrastructure\obj\Debug\net8.
 C:\Users\juruv\Desktop\CSharp\Lab2Proj\CarFleetIO.Infrastructure\obj\Debug\net8.0\CarFleetIO.Infrastructure.pdb
 C:\Users\juruv\Desktop\CSharp\Lab2Proj\CarFleetIO.Infrastructure\obj\Debug\net8.0\CarFleetIO.Infrastructure.genruntimeconfig.cache
 C:\Users\juruv\Desktop\CSharp\Lab2Proj\CarFleetIO.Infrastructure\obj\Debug\net8.0\ref\CarFleetIO.Infrastructure.dll
+C:\Users\juruv\Desktop\CSharp\Lab2Proj\CarFleetIO.Infrastructure\obj\Debug\net8.0\CarFleetIO.Infrastructure.sourcelink.json

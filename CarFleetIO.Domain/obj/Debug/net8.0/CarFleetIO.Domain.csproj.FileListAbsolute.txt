@@ -47,3 +47,4 @@ C:\Users\juruv\Desktop\CSharp\Lab2Proj\CarFleetIO.Domain\obj\Debug\net8.0\CarFle
 C:\Users\juruv\Desktop\CSharp\Lab2Proj\CarFleetIO.Domain\obj\Debug\net8.0\refint\CarFleetIO.Domain.dll
 C:\Users\juruv\Desktop\CSharp\Lab2Proj\CarFleetIO.Domain\obj\Debug\net8.0\CarFleetIO.Domain.pdb
 C:\Users\juruv\Desktop\CSharp\Lab2Proj\CarFleetIO.Domain\obj\Debug\net8.0\ref\CarFleetIO.Domain.dll
+C:\Users\juruv\Desktop\CSharp\Lab2Proj\CarFleetIO.Domain\obj\Debug\net8.0\CarFleetIO.Domain.sourcelink.json

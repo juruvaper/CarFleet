@@ -23,4 +23,8 @@
     <ProjectReference Include="..\CarFleetIO.Shared.Abstractions\CarFleetIO.Shared.Abstractions.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
