@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CarFleetIO.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b47079eb4ec5f0962ed30203f15689ba757505b8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1df7d1de0863cfc5d27d7e887bfbc9a236dedd2b")]
 [assembly: System.Reflection.AssemblyProductAttribute("CarFleetIO.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CarFleetIO.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -3,6 +3,7 @@ using CarFleetIO.Application.DTO;
 using CarFleetIO.Application.Queries;
 using CarFleetIO.Shared.Abstractions.Commands;
 using CarFleetIO.Shared.Abstractions.Queries;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,7 +19,6 @@ namespace CarFleetIO.Api.Controllers
         }
 
 
-        [Authorize()]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateLocation command)
         {
