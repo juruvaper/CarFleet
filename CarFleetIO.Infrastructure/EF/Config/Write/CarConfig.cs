@@ -21,7 +21,6 @@ namespace CarFleetIO.Infrastructure.EF.Config.Write
             var usernameConverter = new ValueConverter<Username, string>(u => u.Value, u => new Username(u));
             var vinConverter = new ValueConverter<VIN, string>(v => v.Value, v => new VIN(v));
 
-
             builder.Property(v => v.Vin)
                 .HasConversion(vinConverter)
                 .IsRequired()
@@ -81,6 +80,7 @@ namespace CarFleetIO.Infrastructure.EF.Config.Write
             builder
                 .Property(d => d.IsDriveable)
                 .HasColumnName("IsDriveable");
+
 
             builder
                 .ToTable("Cars");

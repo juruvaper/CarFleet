@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarFleetIO.Application.DTO
 {
     public class ReservationDTO
     {
-        public Guid Id;
-        public DateOnly ReservationDates_StartDate;
-        public DateOnly ReservationDates_EndDate;
-        public string UserIdentifier;
-        public string CarIdentifier;
-        public string StartCity;
-        public string DestinationCity;
-        public bool Finished;
-        public CarDTO Car;
+        public Guid Id { get; set; }
+        public DateOnly ReservationDates_StartDate { get; set; }
+        public DateOnly ReservationDates_EndDate { get; set; }
+        public string UserIdentifier { get; set; }
+        public string CarIdentifier { get; set; }
+        public string StartCity { get; set; }
+        public string DestinationCity { get; set; }
+        public bool Finished { get; set; }
+        public CarDTO Car { get; set; }
     }
 }

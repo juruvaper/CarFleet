@@ -29,6 +29,12 @@ namespace CarFleetIO.Domain.Entities
         {
         }
 
+        private User(Username userID, string identityId): base(userID, identityId)
+        {
+
+        }
+        
+
 
         public static User Create (Username userID,
                     SecurityNumber securityNumber,
@@ -41,6 +47,13 @@ namespace CarFleetIO.Domain.Entities
                     bool isActive = true)
         {
             return new User(userID, securityNumber, office, gender, name, lastName, birthDate, hireDate, isActive);
+        }
+
+        public static User CreateMinimal(Username userID, string identityId)
+                 
+                 
+        {
+            return new User(userID, identityId);
         }
 
     }

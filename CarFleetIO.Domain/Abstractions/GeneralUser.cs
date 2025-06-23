@@ -14,14 +14,15 @@ namespace CarFleetIO.Shared.Abstractions.Domain
     public abstract class GeneralUser: AggregateRoot<Username>
     {
         public Username Id { get; private set; }
-        public SecurityNumber SecurityNumber;
-        public Guid Office;
-        private Gender _gender;
-        private string _name;
-        private string _lastName;
-        private DateOnly _birthDate;
-        private DateOnly _hireDate;
-        public bool IsActive;
+        public SecurityNumber? SecurityNumber;
+        public string IdentityId { get; set; }
+        public Guid? Office;
+        private Gender? _gender;
+        private string? _name;
+        public string? _lastName;
+        private DateOnly? _birthDate;
+        private DateOnly? _hireDate;
+        public bool? IsActive;
 
         public GeneralUser(Username userID, SecurityNumber securityNumber, Guid office, Gender gender,
             string name, string lastName, DateOnly birthDate, DateOnly hireDate, bool isActive = true)
@@ -59,6 +60,13 @@ namespace CarFleetIO.Shared.Abstractions.Domain
         public GeneralUser()
         {
 
+        }
+
+        public GeneralUser(Username userID, string identityId)
+        {
+            Id = userID;
+            IdentityId = identityId;
+            IsActive = true;
         }
 
         public void Deactivate()

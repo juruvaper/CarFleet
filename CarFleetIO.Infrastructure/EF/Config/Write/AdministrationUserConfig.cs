@@ -16,8 +16,16 @@ namespace CarFleetIO.Infrastructure.EF.Config.Write
     {
         public void Configure(EntityTypeBuilder<AdministrationUser> builder)
         {
-            var usernameConverter = new ValueConverter<Username, string>(u => u.Value, u => new Username(u));
-            var securityNumberConverter = new ValueConverter<SecurityNumber, long>(u => u._number, u => new SecurityNumber(u));
+            var usernameConverter = new ValueConverter<Username, string>(
+                u => u == null ? null: u.Value,
+                u => u == null ? null : new Username(u));
+
+            var securityNumberConverter = new ValueConverter<SecurityNumber?, long?>(
+            u => u == null ? (long?)null : u._number,
+            u => u == null ? null : new SecurityNumber(u.Value)
+            );
+
+
             var genderConverter = new EnumToStringConverter<Gender>();
 
 
@@ -27,38 +35,49 @@ namespace CarFleetIO.Infrastructure.EF.Config.Write
                 .HasColumnName("Username");
 
             builder
+                .Property(u => u.IdentityId);
+
+            builder
                 .HasKey(u => u.Id);
 
             builder
                 .Property(s => s.SecurityNumber)
                 .HasConversion(securityNumberConverter)
-                .HasColumnName("SecurityNumber");
+                .HasColumnName("SecurityNumber")
+                .IsRequired(false);
 
             builder
-                .Property(typeof(Guid), "_office")
+                .Property(typeof(Guid?), "_office")
                 .HasColumnName("Office");
 
+
             builder
-                .Property(typeof(Gender), "_gender")
+                .Property(typeof(Gender?), "_gender")
                 .HasConversion(genderConverter)
-                .HasColumnName("Gender");
+              
+                .HasColumnName("Gender")
+                  .IsRequired(false);
 
 
             builder
                 .Property(typeof(string), "_name")
                 .HasColumnName("Name");
+    
 
             builder
                 .Property(typeof(string), "_lastName")
                 .HasColumnName("LastName");
 
-            builder
-                .Property(typeof(DateOnly), "_birthDate")
-                .HasColumnName("BirthDate");
 
             builder
-               .Property(typeof(DateOnly), "_hireDate")
+                .Property(typeof(DateOnly?), "_birthDate")
+                .HasColumnName("BirthDate");
+
+
+            builder
+               .Property(typeof(DateOnly?), "_hireDate")
                .HasColumnName("HireDate");
+
 
             builder
                 .Property(a => a.IsActive)
@@ -68,6 +87,7 @@ namespace CarFleetIO.Infrastructure.EF.Config.Write
                 .HasOne<Localization>()
                 .WithMany()
                 .HasForeignKey("_office");
+                
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CarFleetIO.Application.DTO;
 using CarFleetIO.Infrastructure.EF.Models;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,21 +14,22 @@ namespace CarFleetIO.Infrastructure.EF.DTOProjections
         public static CarDTO AsDto(this CarReadModel readModel)
             => new()
             {
-                Vin = readModel.Vin,
+                Vin = readModel.VIN,
                 LicensePlate = readModel.LicensePlate,
                 Power = readModel.Power,
                 Mileage = readModel.Mileage,
+                Year = readModel.Year,
                 User = new UserDTO
                 {
                     UserId = readModel.User.UserId,
-                    SecurityNumber = readModel.User.SecurityNumber,
-                    OfficeId = readModel.User.OfficeId,
-                    Gender = readModel.User.Gender,
+                    //SecurityNumber = readModel.User.SecurityNumber,
+                    Office = readModel.User.Office,
+                    //Gender = readModel.User.Gender,
                     Name = readModel.User.Name,
                     LastName = readModel.User.LastName,
-                    BirthDate = readModel.User.BirthDate,
-                    HireDate = readModel.User.HireDate,
-                    IsActive = readModel.User.IsActive,
+                    //BirthDate = readModel.User.BirthDate,
+                    //HireDate = readModel.User.HireDate,
+                    //IsActive = readModel.User.IsActive,
                 },
 
                 PrimaryLocationId = readModel.PrimaryLocationId,
@@ -35,6 +37,7 @@ namespace CarFleetIO.Infrastructure.EF.DTOProjections
                 Model = readModel.Model,
                 Seats = readModel.Seats,
                 IsDriveable = readModel.IsDriveable,
+                Fuel = readModel.Fuel
 
 
             };
@@ -44,7 +47,7 @@ namespace CarFleetIO.Infrastructure.EF.DTOProjections
             {
                 UserId = readModel.UserId,
                 SecurityNumber = readModel.SecurityNumber,
-                OfficeId = readModel.OfficeId,
+                Office = readModel.Office,
                 Gender = readModel.Gender,
                 Name = readModel.Name,
                 LastName = readModel.LastName,
@@ -53,7 +56,7 @@ namespace CarFleetIO.Infrastructure.EF.DTOProjections
                 IsActive = readModel.IsActive,
                 Cars = readModel.Cars?.Select(c => new CarDTO
                 {
-                    Vin = c.Vin,
+                    Vin = c.VIN,
                     LicensePlate = c.LicensePlate,
                     Power = c.Power,
                     Mileage = c.Mileage,
@@ -62,18 +65,11 @@ namespace CarFleetIO.Infrastructure.EF.DTOProjections
                     Model = c.Model,
                     Seats = c.Seats,
                     IsDriveable = c.IsDriveable,
+                    Fuel = c.Fuel
                 }).ToList()
 
             };
 
-
-        public static LocalizationDTO AsDto(this LocalizationReadModel readModel)
-            => new()
-            {
-                LocalizationId = readModel.LocalizationId,
-                Country = readModel.Country,
-                City = readModel.City
-            };
 
         public static ReservationDTO AsDto(this ReservationReadModel readModel)
             => new()
@@ -83,7 +79,7 @@ namespace CarFleetIO.Infrastructure.EF.DTOProjections
                 ReservationDates_EndDate = readModel.ReservationDates_EndDate,
                 Car = new CarDTO
                 {
-                    Vin = readModel.Car.Vin,
+                    Vin = readModel.Car.VIN,
                     LicensePlate = readModel.Car.LicensePlate
                 },
 
@@ -92,6 +88,14 @@ namespace CarFleetIO.Infrastructure.EF.DTOProjections
                 Finished = readModel.Finished
                 
                 
+            };
+
+        public static LocalizationDTO AsDto(this LocalizationReadModel readModel)
+            => new()
+            {
+                LocalizationId = readModel.LocalizationId,
+                Country = readModel.Country,
+                City = readModel.City,
             };
     }
 

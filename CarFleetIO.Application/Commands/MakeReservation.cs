@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace CarFleetIO.Application.Commands
 {
-    public record MakeReservation(ReservationDatesWriteModel reservationDatesWriteModel, string carIdentifier, string userIdentifier, string startCity, string destinationCity): ICommand_
+    public record MakeReservation(ReservationDatesWriteModel reservationDatesWriteModel, string carIdentifier, string startCity, string destinationCity): ICommand_
     {
     }
 

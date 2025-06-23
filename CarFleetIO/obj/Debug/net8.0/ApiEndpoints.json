@@ -1,8 +1,28 @@
 [
   {
-    "ContainingType": "CarFleetIO.Api.Controllers.CarController",
-    "Method": "Post",
-    "RelativePath": "api/Car",
+    "ContainingType": "CarFleetIO.Api.Controllers.carsController",
+    "Method": "GetAllCars",
+    "RelativePath": "carfleet/cars/allcars",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.ICollection\u00601[[CarFleetIO.Application.DTO.CarDTO, CarFleetIO.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CarFleetIO.Api.Controllers.carsController",
+    "Method": "PostCar",
+    "RelativePath": "carfleet/cars/createcar",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -16,15 +36,41 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CarFleetIO.Api.Controllers.CarController",
-    "Method": "Get",
-    "RelativePath": "api/Car/{vin}",
+    "ContainingType": "CarFleetIO.Api.Controllers.carsController",
+    "Method": "GetByMake",
+    "RelativePath": "carfleet/cars/make/{make}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Vin",
+        "Name": "make",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.ICollection\u00601[[CarFleetIO.Application.DTO.CarDTO, CarFleetIO.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CarFleetIO.Api.Controllers.carsController",
+    "Method": "GetByVin",
+    "RelativePath": "carfleet/cars/vin/{vin}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vin",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -44,7 +90,7 @@
   {
     "ContainingType": "CarFleetIO.Api.Controllers.LocalizationController",
     "Method": "Post",
-    "RelativePath": "api/Localization",
+    "RelativePath": "carfleet/Localization",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -60,7 +106,33 @@
   {
     "ContainingType": "CarFleetIO.Api.Controllers.LocalizationController",
     "Method": "Get",
-    "RelativePath": "api/Localization/{City}",
+    "RelativePath": "carfleet/Localization",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "CarFleetIO.Application.Queries.GetAllLocalizations",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.ICollection\u00601[[CarFleetIO.Application.DTO.LocalizationDTO, CarFleetIO.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CarFleetIO.Api.Controllers.LocalizationController",
+    "Method": "Get",
+    "RelativePath": "carfleet/Localization/{City}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -84,9 +156,25 @@
     ]
   },
   {
+    "ContainingType": "CarFleetIO.Api.Controllers.RegisterUserController",
+    "Method": "Post",
+    "RelativePath": "carfleet/RegisterUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "CarFleetIO.Infrastructure.EF.Identity.RegisterUser",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CarFleetIO.Api.Controllers.ReservationController",
     "Method": "Post",
-    "RelativePath": "api/Reservation",
+    "RelativePath": "carfleet/Reservation",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -100,9 +188,61 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CarFleetIO.Api.Controllers.ReservationController",
+    "Method": "GetReservedDates",
+    "RelativePath": "carfleet/Reservation/getdatesbyvin",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Vin",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CarFleetIO.Api.Controllers.ReservationController",
+    "Method": "Get",
+    "RelativePath": "carfleet/Reservation/getmyreservations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "CarFleetIO.Application.Queries.GetMyReservations",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[CarFleetIO.Application.DTO.ReservationDTO, CarFleetIO.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "CarFleetIO.Api.Controllers.UserController",
     "Method": "Post",
-    "RelativePath": "api/User",
+    "RelativePath": "carfleet/User",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -118,7 +258,23 @@
   {
     "ContainingType": "CarFleetIO.Api.Controllers.UserController",
     "Method": "Put",
-    "RelativePath": "api/User/User/{username}",
+    "RelativePath": "carfleet/User/activate-user/{username})",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarFleetIO.Api.Controllers.UserController",
+    "Method": "Put",
+    "RelativePath": "carfleet/User/change-lastname",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -126,11 +282,6 @@
       {
         "Name": "command",
         "Type": "CarFleetIO.Application.Commands.ChangeLastName",
-        "IsRequired": true
-      },
-      {
-        "Name": "username",
-        "Type": "",
         "IsRequired": true
       }
     ],

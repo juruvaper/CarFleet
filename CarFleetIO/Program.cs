@@ -6,9 +6,11 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using CarFleetIO.Api;
 using CarFleetIO.Application;
+using CarFleetIO.Application.Commands;
 using CarFleetIO.Infrastructure;
 using CarFleetIO.Infrastructure.EF.AppInit;
 using CarFleetIO.Infrastructure.EF.Identity;
+using CarFleetIO.Shared.Abstractions.Commands;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -20,19 +22,36 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddShared();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(configuration);
+builder.Services.AddTransient<ICommandHandler<RegisterUser>, RegisterUserHandler>();
+
+
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
-                {
-                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
-                });
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
+    });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("LocalDevelopment", policy =>
+    {
+        policy.WithOrigins(
+                "http://localhost:5173")
+               
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials(); // Optional: if using cookies/auth
+    });
+});
 
 
 builder.Services.AddAuthentication()/*AddCookie(IdentityConstants.ApplicationScheme)*/
@@ -41,9 +60,19 @@ builder.Services.AddAuthentication()/*AddCookie(IdentityConstants.ApplicationSch
 
 builder.Services.AddAuthorization();
 
-builder.Services.AddIdentityCore<UserIdentity>()
+builder.Services.AddIdentityCore<UserIdentity>(options =>
+{
+    options.Password.RequiredLength = 8;
+    options.Password.RequireDigit = true;
+    options.User.RequireUniqueEmail = true;
+})
     .AddEntityFrameworkStores<UserManagerDbContext>()
     .AddApiEndpoints();
+
+
+
+
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddDbContext<UserManagerDbContext>(options => options.UseNpgsql("Host=localhost;Database=Identity;Username=postgres;Password="));
 
@@ -87,8 +116,11 @@ if (app.Environment.IsDevelopment())
     app.ApplyMigrations();
 }
 
+app.UseCors("LocalDevelopment");
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseHttpsRedirection();
-app.MapControllers().RequireAuthorization();
+app.MapControllers();//.RequireAuthorization();
 app.MapIdentityApi<UserIdentity>();
 
 

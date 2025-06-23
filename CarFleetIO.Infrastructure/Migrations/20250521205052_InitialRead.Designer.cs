@@ -13,8 +13,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CarFleetIO.Infrastructure.Migrations
 {
     [DbContext(typeof(WriteDbContext))]
-    [Migration("20250511081356_Init")]
-    partial class Init
+    [Migration("20250521205052_InitialRead")]
+    partial class InitialRead
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,38 +32,39 @@ namespace CarFleetIO.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("Username");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<string>("IdentityId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool?>("IsActive")
                         .HasColumnType("boolean")
                         .HasColumnName("IsActive");
 
-                    b.Property<long>("SecurityNumber")
+                    b.Property<long?>("SecurityNumber")
                         .HasColumnType("bigint")
                         .HasColumnName("SecurityNumber");
 
-                    b.Property<DateOnly>("_birthDate")
+                    b.Property<DateOnly?>("_birthDate")
                         .HasColumnType("date")
                         .HasColumnName("BirthDate");
 
                     b.Property<string>("_gender")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("Gender");
 
-                    b.Property<DateOnly>("_hireDate")
+                    b.Property<DateOnly?>("_hireDate")
                         .HasColumnType("date")
                         .HasColumnName("HireDate");
 
                     b.Property<string>("_lastName")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("LastName");
 
                     b.Property<string>("_name")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("Name");
 
-                    b.Property<Guid>("_office")
+                    b.Property<Guid?>("_office")
                         .HasColumnType("uuid")
                         .HasColumnName("Office");
 
@@ -361,37 +362,38 @@ namespace CarFleetIO.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("Username");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<string>("IdentityId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool?>("IsActive")
                         .HasColumnType("boolean")
                         .HasColumnName("IsActive");
 
-                    b.Property<Guid>("Office")
+                    b.Property<Guid?>("Office")
                         .HasColumnType("uuid");
 
-                    b.Property<long>("SecurityNumber")
+                    b.Property<long?>("SecurityNumber")
                         .HasColumnType("bigint")
                         .HasColumnName("SecurityNumber");
 
-                    b.Property<DateOnly>("_birthDate")
+                    b.Property<DateOnly?>("_birthDate")
                         .HasColumnType("date")
                         .HasColumnName("BirthDate");
 
                     b.Property<string>("_gender")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("Gender");
 
-                    b.Property<DateOnly>("_hireDate")
+                    b.Property<DateOnly?>("_hireDate")
                         .HasColumnType("date")
                         .HasColumnName("HireDate");
 
                     b.Property<string>("_lastName")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("LastName");
 
                     b.Property<string>("_name")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("Name");
 
@@ -406,9 +408,7 @@ namespace CarFleetIO.Infrastructure.Migrations
                 {
                     b.HasOne("CarFleetIO.Domain.Entities.Localization", null)
                         .WithMany()
-                        .HasForeignKey("_office")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("_office");
                 });
 
             modelBuilder.Entity("CarFleetIO.Domain.Entities.Car", b =>
@@ -502,9 +502,7 @@ namespace CarFleetIO.Infrastructure.Migrations
                 {
                     b.HasOne("CarFleetIO.Domain.Entities.Localization", null)
                         .WithMany()
-                        .HasForeignKey("Office")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Office");
                 });
 #pragma warning restore 612, 618
         }

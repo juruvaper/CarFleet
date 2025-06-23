@@ -10,4 +10,5 @@ namespace CarFleetIO.Shared.Abstractions.Queries
     {
         Task<TResult> HandleAsync(TQuery query);
     }
+
 }

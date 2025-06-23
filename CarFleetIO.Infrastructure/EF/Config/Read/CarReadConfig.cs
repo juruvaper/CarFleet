@@ -17,10 +17,10 @@ namespace CarFleetIO.Infrastructure.EF.Config.Read
                 .ToTable("Cars");
 
             builder
-                .HasKey(v => v.Vin);
+                .HasKey(v => v.VIN);
 
             builder
-                .Property(v => v.Vin)
+                .Property(v => v.VIN)
                 .HasColumnName("VIN");
 
             builder

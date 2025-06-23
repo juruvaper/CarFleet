@@ -35,5 +35,13 @@ namespace CarFleetIO.Api.Controllers
 
             return OkOrNotFound(result);
         }
+
+        [HttpGet()]
+
+        public async Task<ActionResult<ICollection<LocalizationDTO>>> Get([FromRoute] GetAllLocalizations query)
+        {
+            var result = await _queryDispatcher.QueryAsync(query);
+            return OkOrNotFound(result);
+        }
     }
 }

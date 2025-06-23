@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarFleetIO.Domain.Entities
 {
-    public class TripReport: AggregateRoot<Guid>
+    public class TripReport
     {
         public Guid Id { get; private set; }
         public Guid ReservationOrigin { get; private set; }
@@ -22,36 +22,16 @@ namespace CarFleetIO.Domain.Entities
 
         }
 
-        private TripReport(Guid tripID, Guid reservationOrigin)
+        private TripReport(Guid reservationOrigin)
         {
-            Id = tripID;
             ReservationOrigin = reservationOrigin;
         }
 
-
-        private TripReport(Guid tripID, Guid reservationOrigin, int distance, float fuelConsumed)
-        {
-            if(distance < 1 || distance > 9999)
-            {
-                throw new ArgumentException("Invalid distance");
-            }
-
-            if(fuelConsumed < 1 || fuelConsumed > 500)
-            {
-                throw new ArgumentException("Invalid fuel consumption");
-            }
-
-
-            Id = tripID;
-            ReservationOrigin = reservationOrigin;
-            _distance = distance;
-            _fuelConsumed = fuelConsumed;
-        }
 
         public static TripReport Create(Guid tripID, Guid reservationOrigin)
         {
-            return new TripReport(tripID, reservationOrigin);
-;        }
+            return new TripReport(reservationOrigin);
+        }
 
 
         public void FillTripInfo(int distance, float fuelConsumed)

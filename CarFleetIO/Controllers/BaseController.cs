@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CarFleetIO.Api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("carfleet/[controller]")]
 
     public abstract class BaseController: ControllerBase
     {

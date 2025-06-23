@@ -26,7 +26,7 @@ namespace CarFleetIO.Infrastructure.EF.Services
 
         public Task<bool> ExistsByVIN(string vin)
         {
-            return _cars.AnyAsync(c => c.Vin == vin);
+            return _cars.AnyAsync(c => c.VIN == vin);
         }
     }
 }

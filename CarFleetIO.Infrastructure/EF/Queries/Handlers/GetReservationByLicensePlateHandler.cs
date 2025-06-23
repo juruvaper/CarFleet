@@ -4,6 +4,7 @@ using CarFleetIO.Infrastructure.EF.Contexts;
 using CarFleetIO.Infrastructure.EF.DTOProjections;
 using CarFleetIO.Infrastructure.EF.Models;
 using CarFleetIO.Shared.Abstractions.Queries;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace CarFleetIO.Infrastructure.EF.Queries.Handlers
 
         public async Task<IEnumerable<ReservationDTO>> HandleAsync(GetReservationByLicensePlate query)
         {
+
             return await _reservations.Where(r => r.Car.LicensePlate == query.LicensePlate)
                 .Select(r => r.AsDto())
                 .AsNoTracking()

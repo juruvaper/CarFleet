@@ -5,76 +5,6 @@
     "version": "v1"
   },
   "paths": {
-    "/api/Car/{vin}": {
-      "get": {
-        "tags": [
-          "Car"
-        ],
-        "parameters": [
-          {
-            "name": "Vin",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CarDTO"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CarDTO"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CarDTO"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Car": {
-      "post": {
-        "tags": [
-          "Car"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCar"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCar"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCar"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/register": {
       "post": {
         "tags": [
@@ -409,7 +339,163 @@
         }
       }
     },
-    "/api/Localization": {
+    "/carfleet/cars/vin/{vin}": {
+      "get": {
+        "tags": [
+          "cars"
+        ],
+        "parameters": [
+          {
+            "name": "vin",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/carfleet/cars/make/{make}": {
+      "get": {
+        "tags": [
+          "cars"
+        ],
+        "parameters": [
+          {
+            "name": "make",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CarDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CarDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CarDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/carfleet/cars/createcar": {
+      "post": {
+        "tags": [
+          "cars"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCar"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCar"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCar"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/carfleet/cars/allcars": {
+      "get": {
+        "tags": [
+          "cars"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CarDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CarDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CarDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/carfleet/Localization": {
       "post": {
         "tags": [
           "Localization"
@@ -438,9 +524,55 @@
             "description": "OK"
           }
         }
+      },
+      "get": {
+        "tags": [
+          "Localization"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/GetAllLocalizations"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LocalizationDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LocalizationDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LocalizationDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
-    "/api/Localization/{City}": {
+    "/carfleet/Localization/{City}": {
       "get": {
         "tags": [
           "Localization"
@@ -479,7 +611,38 @@
         }
       }
     },
-    "/api/Reservation": {
+    "/carfleet/RegisterUser": {
+      "post": {
+        "tags": [
+          "RegisterUser"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterUser"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterUser"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/carfleet/Reservation": {
       "post": {
         "tags": [
           "Reservation"
@@ -510,7 +673,101 @@
         }
       }
     },
-    "/api/User": {
+    "/carfleet/Reservation/getmyreservations": {
+      "get": {
+        "tags": [
+          "Reservation"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/GetMyReservations"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReservationDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReservationDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReservationDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/carfleet/Reservation/getdatesbyvin": {
+      "get": {
+        "tags": [
+          "Reservation"
+        ],
+        "parameters": [
+          {
+            "name": "Vin",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/carfleet/User": {
       "post": {
         "tags": [
           "User"
@@ -541,20 +798,10 @@
         }
       }
     },
-    "/api/User/User/{username}": {
+    "/carfleet/User/change-lastname": {
       "put": {
         "tags": [
           "User"
-        ],
-        "parameters": [
-          {
-            "name": "username",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "requestBody": {
           "content": {
@@ -575,6 +822,28 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/carfleet/User/activate-user/{username})": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -637,6 +906,54 @@
       },
       "CarDTO": {
         "type": "object",
+        "properties": {
+          "vin": {
+            "type": "string",
+            "nullable": true
+          },
+          "licensePlate": {
+            "type": "string",
+            "nullable": true
+          },
+          "power": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mileage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserDTO"
+          },
+          "primaryLocationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "make": {
+            "type": "string",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "nullable": true
+          },
+          "seats": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isDriveable": {
+            "type": "boolean"
+          },
+          "fuel": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
         "additionalProperties": false
       },
       "CarDetailsWriteModel": {
@@ -826,6 +1143,14 @@
         ],
         "type": "string"
       },
+      "GetAllLocalizations": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "GetMyReservations": {
+        "type": "object",
+        "additionalProperties": false
+      },
       "HttpValidationProblemDetails": {
         "type": "object",
         "properties": {
@@ -952,10 +1277,6 @@
             "type": "string",
             "nullable": true
           },
-          "userIdentifier": {
-            "type": "string",
-            "nullable": true
-          },
           "startCity": {
             "type": "string",
             "nullable": true
@@ -998,6 +1319,24 @@
         },
         "additionalProperties": false
       },
+      "RegisterUser": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ResendConfirmationEmailRequest": {
         "required": [
           "email"
@@ -1007,6 +1346,46 @@
           "email": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReservationDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "reservationDates_StartDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "reservationDates_EndDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "userIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "carIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "startCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "destinationCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "finished": {
+            "type": "boolean"
+          },
+          "car": {
+            "$ref": "#/components/schemas/CarDTO"
           }
         },
         "additionalProperties": false
@@ -1114,6 +1493,59 @@
           "coupe"
         ],
         "type": "string"
+      },
+      "UserDTO": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "securityNumber": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "office": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "hireDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "cars": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CarDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       }
     },
     "securitySchemes": {

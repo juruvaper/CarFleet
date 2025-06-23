@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CarFleetIO.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class InitialRead : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,14 +32,15 @@ namespace CarFleetIO.Infrastructure.Migrations
                 columns: table => new
                 {
                     Username = table.Column<string>(type: "text", nullable: false),
-                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
-                    SecurityNumber = table.Column<long>(type: "bigint", nullable: false),
-                    BirthDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    Gender = table.Column<string>(type: "text", nullable: false),
-                    HireDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    LastName = table.Column<string>(type: "text", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Office = table.Column<Guid>(type: "uuid", nullable: false)
+                    IsActive = table.Column<bool>(type: "boolean", nullable: true),
+                    SecurityNumber = table.Column<long>(type: "bigint", nullable: true),
+                    BirthDate = table.Column<DateOnly>(type: "date", nullable: true),
+                    Gender = table.Column<string>(type: "text", nullable: true),
+                    HireDate = table.Column<DateOnly>(type: "date", nullable: true),
+                    LastName = table.Column<string>(type: "text", nullable: true),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    Office = table.Column<Guid>(type: "uuid", nullable: true),
+                    IdentityId = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -48,8 +49,7 @@ namespace CarFleetIO.Infrastructure.Migrations
                         name: "FK_AdministrationUser_Localizations_Office",
                         column: x => x.Office,
                         principalTable: "Localizations",
-                        principalColumn: "LocalizationId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "LocalizationId");
                 });
 
             migrationBuilder.CreateTable(
@@ -57,14 +57,15 @@ namespace CarFleetIO.Infrastructure.Migrations
                 columns: table => new
                 {
                     Username = table.Column<string>(type: "text", nullable: false),
-                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
-                    Office = table.Column<Guid>(type: "uuid", nullable: false),
-                    SecurityNumber = table.Column<long>(type: "bigint", nullable: false),
-                    BirthDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    Gender = table.Column<string>(type: "text", nullable: false),
-                    HireDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    LastName = table.Column<string>(type: "text", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false)
+                    IsActive = table.Column<bool>(type: "boolean", nullable: true),
+                    Office = table.Column<Guid>(type: "uuid", nullable: true),
+                    SecurityNumber = table.Column<long>(type: "bigint", nullable: true),
+                    BirthDate = table.Column<DateOnly>(type: "date", nullable: true),
+                    Gender = table.Column<string>(type: "text", nullable: true),
+                    HireDate = table.Column<DateOnly>(type: "date", nullable: true),
+                    LastName = table.Column<string>(type: "text", nullable: true),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    IdentityId = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -73,8 +74,7 @@ namespace CarFleetIO.Infrastructure.Migrations
                         name: "FK_Users_Localizations_Office",
                         column: x => x.Office,
                         principalTable: "Localizations",
-                        principalColumn: "LocalizationId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "LocalizationId");
                 });
 
             migrationBuilder.CreateTable(
