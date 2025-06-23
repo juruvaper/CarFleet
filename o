@@ -1,0 +1,16 @@
+[33m3ec854f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mRecovery[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mrecover-final[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2025-06-23 12:02:48 +0200}: checkout: moving from 3ec854f0aff5d27c12c29976efec86b5f9c6fac2 to Recovery
+[33m3ec854f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mRecovery[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mrecover-final[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2025-06-23 11:58:18 +0200}: checkout: moving from recover-final to 3ec854f
+[33m3ec854f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mRecovery[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mrecover-final[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2025-06-23 10:56:29 +0200}: checkout: moving from main to recover-final
+[33m3ec854f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mRecovery[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mrecover-final[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2025-06-23 10:36:03 +0200}: commit: Final adjustments
+[33mb47079e[m HEAD@{2025-06-23 10:35:38 +0200}: checkout: moving from AddingAuth to main
+[33mba0ed9b[m[33m ([m[1;32mAddingAuth[m[33m)[m HEAD@{2025-06-23 10:32:49 +0200}: commit: Updates before finalizing project
+[33m1d562d5[m[33m ([m[1;31morigin/AddingAuth[m[33m)[m HEAD@{2025-05-11 12:17:35 +0200}: commit: Implemented authorization and refactored the Program.cs to align with the .net 8 standard
+[33m1df7d1d[m HEAD@{2025-05-11 11:27:17 +0200}: commit: Adding auth service
+[33mb47079e[m HEAD@{2025-05-11 09:38:50 +0200}: reset: moving to origin/main
+[33mb47079e[m HEAD@{2025-05-10 11:08:01 +0200}: checkout: moving from main to AddingAuth
+[33mb47079e[m HEAD@{2025-05-10 11:01:59 +0200}: Branch: renamed refs/heads/main to refs/heads/main
+[33mb47079e[m HEAD@{2025-05-10 10:39:45 +0200}: Branch: renamed refs/heads/Master to refs/heads/main
+[33mb47079e[m HEAD@{2025-05-10 10:39:17 +0200}: checkout: moving from AddingAuth to Master
+[33mb47079e[m HEAD@{2025-05-10 10:25:10 +0200}: checkout: moving from master to AddingAuth
+[33mb47079e[m HEAD@{2025-05-10 10:11:07 +0200}: commit: Update git ignore to exclude files
+[33mce2ff69[m HEAD@{2025-05-10 10:07:16 +0200}: commit (initial): Init commit CarFleetIO -committing initial files to the repo
